@@ -1,6 +1,5 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
-import { friends } from "./constants/friends.const";
 import friendsRouter from "./routes/friends/friends.router";
 import mainRouter from "./routes/main/main.router";
 

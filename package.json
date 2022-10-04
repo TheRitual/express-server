@@ -4,10 +4,12 @@
   "description": "Testing Express",
   "main": "app.ts",
   "scripts": {
+    "postbuild": "copyfiles ./public/** ./build",
     "prebuild": "yarn prettier --write .",
     "build": "npx tsc",
     "start": "node build/app.js",
-    "dev": "concurrently \"prettier --write .\" \"npx tsc --watch\" \"nodemon -q build/app.js\""
+    "predev": "concurrently \"prettier --write .\" \"copyfiles ./public/** ./build\" \"npx tsc\"",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q build/app.js\""
   },
   "author": "MGIK",
   "license": "ISC",
@@ -19,6 +21,7 @@
     "@types/express": "^4.17.14",
     "@types/node": "^18.8.0",
     "concurrently": "^7.4.0",
+    "copyfiles": "^2.4.1",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "tsc": "^2.0.4",
