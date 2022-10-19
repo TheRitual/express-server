@@ -15,7 +15,9 @@ const allLogger = (req: Request, res: Response, next: NextFunction) => {
       .replace(/T/, " ")
       .replace(/\..+/, "")}.${new Date(startTime).getMilliseconds()}] [${
       endTime - startTime
-    }ms] ::: ${protocol} ${method} ${burl}${endpoint} from ${ip}`
+    }ms] ::: ${protocol} ${method} ${burl}${endpoint} from ${ip} ${
+      req.errored ? " ::: " + req.errored : "OK"
+    }`
   );
 };
 

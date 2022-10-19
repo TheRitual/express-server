@@ -7,7 +7,15 @@ const mainController = {
     res.json({ friends: friends });
   },
   getFavicon: (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, "..", "..", "public", "favicon.ico"));
+    const faviconPath = path.join(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      "public",
+      "favicon.ico"
+    );
+    res.sendFile(faviconPath);
   },
 };
 
